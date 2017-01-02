@@ -1,6 +1,7 @@
 class MoodsController < ApplicationController
   def index
-    @moods = Mood.page(params[:page]).per(10)
+    @q = Mood.ransack(params[:q])
+    @moods = @q.result(:distinct => true).includes(:devotional_quote).page(params[:page]).per(10)
 
     render("moods/index.html.erb")
   end
