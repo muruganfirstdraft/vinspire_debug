@@ -1,0 +1,1 @@
+{"name":"VInspire debug","repository":"https://github.com/murugan-r/vinspire_debug","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}
