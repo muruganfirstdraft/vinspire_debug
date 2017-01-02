@@ -42,7 +42,7 @@
           Mood
         </label>
 
-        <input type="text" id="mood_id" name="mood_id" placeholder="Mood" class="form-control" value="<%= @quote.mood_id %>">
+        <%= select_tag(:mood_id, options_from_collection_for_select(Mood.all, :id, :mood_choice, @quote.mood_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for quote_type -->
