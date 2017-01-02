@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @quote.errors.any? %>
+  <% @quote.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Quote #<%= @quote.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_quote/<%= @quote.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <input type="text" id="body" name="body" placeholder="Body" class="form-control" value="<%= @quote.body %>">
+      </div>
+
+      <!-- Label and input for author -->
+      <div class="form-group">
+        <label for="author" class="control-label">
+          Author
+        </label>
+
+        <input type="text" id="author" name="author" placeholder="Author" class="form-control" value="<%= @quote.author %>">
+      </div>
+
+      <!-- Label and input for mood_id -->
+      <div class="form-group">
+        <label for="mood_id" class="control-label">
+          Mood
+        </label>
+
+        <input type="text" id="mood_id" name="mood_id" placeholder="Mood" class="form-control" value="<%= @quote.mood_id %>">
+      </div>
+
+      <!-- Label and input for quote_type -->
+      <div class="form-group">
+        <label for="quote_type" class="control-label">
+          Quote type
+        </label>
+
+        <input type="text" id="quote_type" name="quote_type" placeholder="Quote type" class="form-control" value="<%= @quote.quote_type %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Quote
+      </button>
+      or
+      <a href="/quotes/<%= @quote.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

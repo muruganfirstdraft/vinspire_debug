@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Quotes
+    <a href="/quotes/new" class="btn btn-lg btn-success">New Quote</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Body</th>
+        <th>Author</th>
+        <th>Mood</th>
+        <th>Quote type</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @quotes.each do |quote| %>
+      <tr>
+        <td><%= quote.body %></td>
+        <td><%= quote.author %></td>
+        <td><%= quote.mood_id %></td>
+        <td><%= quote.quote_type %></td>
+        <td>
+          <a href="/quotes/<%= quote.id %>" class="btn btn-primary">Show</a>
+          <a href="/quotes/<%= quote.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_quote/<%= quote.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
