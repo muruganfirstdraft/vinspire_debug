@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
   def index
-    @quotes = Quote.all
+    @quotes = Quote.page(params[:page]).per(10)
 
     render("quotes/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class MoodsController < ApplicationController
   def index
-    @moods = Mood.all
+    @moods = Mood.page(params[:page]).per(10)
 
     render("moods/index.html.erb")
   end
