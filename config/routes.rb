@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Mood resource:
+  # CREATE
+  get "/moods/new", :controller => "moods", :action => "new"
+  post "/create_mood", :controller => "moods", :action => "create"
+
+  # READ
+  get "/moods", :controller => "moods", :action => "index"
+  get "/moods/:id", :controller => "moods", :action => "show"
+
+  # UPDATE
+  get "/moods/:id/edit", :controller => "moods", :action => "edit"
+  post "/update_mood/:id", :controller => "moods", :action => "update"
+
+  # DELETE
+  get "/delete_mood/:id", :controller => "moods", :action => "destroy"
+  #------------------------------
+
   # Routes for the Quote resource:
   # CREATE
   get "/quotes/new", :controller => "quotes", :action => "new"
