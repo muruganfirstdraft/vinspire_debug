@@ -12,7 +12,13 @@
       <dd><%= @quote.author %></dd>
 
       <dt>Mood</dt>
-      <dd><%= @quote.mood_id %></dd>
+      <dd>
+        <% if @quote.mood.present? %>
+          <a href="/moods/<%= @quote.mood_id %>">
+            <%= @quote.mood.mood_choice %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Quote type</dt>
       <dd><%= @quote.quote_type %></dd>
