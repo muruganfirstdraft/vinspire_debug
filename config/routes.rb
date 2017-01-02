@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "quotes#index"
   # Routes for the Mood resource:
   # CREATE
   get "/moods/new", :controller => "moods", :action => "new"
